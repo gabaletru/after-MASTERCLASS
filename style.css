@@ -1,0 +1,133 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.grid-container{
+    width: 80%;
+    margin: 0 auto;
+    color: black;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    display: grid;
+    /*Declarar columnas*/
+    grid-template-columns: repeat(3,1fr);
+    /*Declarar filas*/
+    grid-template-rows: 250px 100px auto 150px;
+    grid-template-areas: 
+    "header header header"
+    "nav nav nav"
+    "main main aside"
+    "footer footer footer"
+    ;
+}
+
+
+.encabezado{
+    background-color: #f1ddbf;
+    color: white;
+    grid-area: header;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu{
+    background-color: burlywood;
+    grid-area: nav;
+}
+
+.menu ul{
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100%;
+}
+
+.menu ul li a{
+    text-decoration: none;
+    color: white;
+}
+
+.contenido{
+    background-color: #92ba92;
+    grid-area: main;
+}
+
+.conocenos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.sobre-nosotros{
+    text-align: center;
+    margin: 50px;
+}
+.publicidad{
+    background-color: #525e75;
+    grid-area: aside;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.pie{
+    background-color: #78939a;
+    grid-area: footer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pie img{
+    margin: 10px;
+}
+
+/*-------MEDIA QUERY-----*/
+
+@media screen and (max-width:1050px){
+    .grid-container{
+        width: 100%;
+        margin: 0;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 250px 100px auto 250px 100px;
+        grid-template-areas: 
+        "header header"
+        "nav nav"
+        "main main"
+        "aside aside"
+        "footer footer"
+        ;
+    }
+    .publicidad{
+        flex-direction: row;
+    }
+}
+
+@media screen and (max-width:580px){
+.grid-container{
+    grid-template-columns: 1fr;
+        grid-template-rows: 250px 100px auto 450px 100px;
+        grid-template-areas: 
+        "header"
+        "nav"
+        "main"
+        "aside"
+        "footer"
+        ;
+    }
+    .menu ul{
+        flex-direction: column;
+    }
+    .conocenos{
+        flex-direction: column;
+    }
+    .publicidad{
+        flex-direction: column;
+    }
+}
